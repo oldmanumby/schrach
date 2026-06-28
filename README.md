@@ -5,7 +5,7 @@ SCHRACH is a framework for AI/Agents to update a system of parent and child `AGE
 This work is based upon and combines two recent developments:
 
 - [DOX](https://github.com/agent0ai/dox) by [Agent Zero](https://github.com/agent0ai): A tiny `AGENTS.md` framework that gives an AI agent precise, hierarchical project context.
-- [Google OKF (Open Knowledge Format)](https://cloud.google.com/blog/products/data-analytics/how-the-open-knowledge-format-can-improve-data-sharing): An open specification that formalizes the LLM-wiki pattern into a portable format using Markdown and YAML frontmatter.
+- [Google OKF (Open Knowledge Format)](https://cloud.google.com/blog/products/data-analytics/how-the-open-knowledge-format-can-improve-data-sharing): An open specification that formalizes the [LLM-wiki](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f) pattern into a portable format using Markdown and YAML frontmatter.
 
 ## What Does SCHRACH Do?
 
