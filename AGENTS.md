@@ -45,10 +45,11 @@ Update the closest owning `AGENTS.md` when a change affects:
 
 Update parent docs when parent-level structure, ownership, workflow, or child index changes. Update child docs when parent changes alter local rules. Remove stale or contradictory text immediately. Small edits that do not change behavior or contracts may leave docs unchanged, but the SCHRACH pass still must happen.
 
-## Hierarchy
+## Hierarchy & Project Map
 
-- Root `AGENTS.md` is the central rail: project-wide instructions, global preferences, durable workflow rules, and the top-level Child Index.
-- Child `AGENTS.md` files own domain-specific instructions and their own Child Index.
+- **Global Map (`AGENTS-TREE.md`):** The master map of the repository sits at the root in `AGENTS-TREE.md`. You must consult this map when entering the project to "fast-travel" to the relevant directory.
+- **Root `AGENTS.md`:** The central rail: project-wide instructions, global preferences, durable workflow rules.
+- **Child `AGENTS.md` files:** Domain-specific instructions and a localized Child Index.
 - Each parent explains what its direct children cover and what stays owned by the parent.
 - The closer a doc is to the work, the more specific and practical it must be.
 
@@ -82,10 +83,11 @@ Default section order (after YAML frontmatter):
 1. Re-check changed paths against the SCHRACH chain.
 2. Update nearest owning docs and any affected parents or children.
 3. Refresh the `last_updated` timestamp and `dependencies` array in the YAML frontmatter of any modified docs.
-4. Refresh every affected Child Index.
-5. Remove stale or contradictory text.
-6. Run existing verification when relevant.
-7. Report any docs intentionally left unchanged and why.
+4. Refresh every affected local Child Index.
+5. **CRITICAL:** If you created, moved, or deleted an `AGENTS.md` file, you MUST regenerate the `AGENTS-TREE.md` file at the root to reflect the new global hierarchy.
+6. Remove stale or contradictory text.
+7. Run existing verification when relevant.
+8. Report any docs intentionally left unchanged and why.
 
 ## User Preferences
 
@@ -93,7 +95,9 @@ When the user requests a durable behavior change, record it here or in the relev
 
 ## Child Index
 
-This project is not yet indexed. Before continuing you must scan the project, build the SCHRACH tree and replace this message with the actual index. Go deep and scan files recursively to properly evaluate complexity and create nested `AGENTS.md` files where needed.
+*(The local map for this specific directory's immediate sub-folders. For the full project map, see `AGENTS-TREE.md` at the root).*
+
+This directory is not yet indexed. Before continuing you must scan the immediate sub-folders, build the localized SCHRACH tree for this scope, and replace this message with the actual index.
 
 ---
 

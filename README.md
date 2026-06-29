@@ -13,6 +13,7 @@ Large Language Models struggle with "Lost in the Middle" syndrome when fed an en
 
 1. **Contextual Pruning (from DOX):** Instead of one massive instruction file, SCHRACH distributes instructions into a localized tree of `AGENTS.md` files. An agent reads the root file, then traverses down the directory tree to find the specific local guidelines for the files it intends to edit.
 2. **Perfect Metadata Parsing (from OKF):** Every `AGENTS.md` file requires strict YAML frontmatter. This allows any AI agent to instantly parse metadata—like dependencies, scope, and when the rules were last updated—without having to guess the structure of the document.
+3. **The Global Map:** A dynamically maintained `AGENTS-TREE.md` file sits at the project root. The AI agent automatically updates this file whenever it creates or modifies an `AGENTS.md` file, providing a constantly up-to-date visual map of the entire project structure for instant navigation without blind searching.
 
 The result is a self-maintaining memory system. The AI understands the local rules, makes precise edits, and updates the local `AGENTS.md` file to keep the documentation current. Less guessing. Less drift.
 
