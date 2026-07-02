@@ -21,7 +21,12 @@ The result is a self-maintaining memory system. The AI understands the local rul
 
 ## How To Use SCHRACH
 
-1. Copy the `.agents` folder (containing `AGENTS.md` and `AGENTS-TREE.md`) into the root of your project.
-2. Update the YAML frontmatter in the master `AGENTS.md` to reflect your project details.
-3. Tell your AI agent (like Claude, Cursor, or Google Antigravity): *"Please initialize the SCHRACH hierarchy for this project."*
-4. The AI will autonomously scan your entire project tree, evaluate the complexity of your codebase, and automatically generate all necessary nested `AGENTS.md` files (complete with OKF YAML metadata) for you. You do not have to write them manually!
+To prevent AI "premature execution" (where an agent hallucinates the framework rules instead of reading them), initialization should be handled via a script *before* the agent reads the rules.
+
+1. **Initialize the files manually**: Open a terminal in your new project's root directory and run the initialization script:
+   ```bash
+   bash /Users/oldmanumby/Documents/Projects/SCHRACH/scripts/init-schrach.sh
+   ```
+2. **Setup the basics**: Open the newly copied `.agents/AGENTS.md` and update the YAML frontmatter and the `Custom Project Instructions` at the bottom to reflect your new project's specific rules and tech stack.
+3. **Instruct the Agent**: Once the files are in place, start your AI agent session. Do NOT bury the SCHRACH initialization into a massive multi-step prompt. Provide a dedicated instruction first:
+   > *"I have scaffolded the SCHRACH framework. Please read the root `.agents/AGENTS.md` file carefully. Then, scan my project tree and automatically generate any necessary nested `AGENTS.md` files according to the framework's rules."*
