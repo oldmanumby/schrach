@@ -6,5 +6,7 @@ This file is autonomously maintained by the AI agent. It provides a global, visu
 
 ```text
 .
-├── AGENTS.md (Root global rules and user preferences)
+└── .agents
+    ├── AGENTS-TREE.md (Global map)
+    └── AGENTS.md (Root global rules and user preferences)
 ```

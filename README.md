@@ -11,15 +11,17 @@ This work is based upon and combines two recent developments:
 
 Large Language Models struggle with "Lost in the Middle" syndrome when fed an entire project's codebase or a single, bloated `AGENTS.md` file. SCHRACH solves this by:
 
-1. **Contextual Pruning (from DOX):** Instead of one massive instruction file, SCHRACH distributes instructions into a localized tree of `AGENTS.md` files. An agent reads the root file, then traverses down the directory tree to find the specific local guidelines for the files it intends to edit.
+1. **Contextual Pruning (from DOX):** Instead of one massive instruction file, SCHRACH distributes instructions into a localized tree of `AGENTS.md` files. An agent reads the root master file (typically located in a `.agents/` folder), then traverses down the directory tree to find the specific local guidelines for the files it intends to edit.
 2. **Perfect Metadata Parsing (from OKF):** Every `AGENTS.md` file requires strict YAML frontmatter. This allows any AI agent to instantly parse metadata—like dependencies, scope, and when the rules were last updated—without having to guess the structure of the document.
-3. **The Global Map:** A dynamically maintained `AGENTS-TREE.md` file sits at the project root. The AI agent automatically updates this file whenever it creates or modifies an `AGENTS.md` file, providing a constantly up-to-date visual map of the entire project structure for instant navigation without blind searching.
+3. **The Global Map:** A dynamically maintained `AGENTS-TREE.md` file sits alongside the master file. The AI agent automatically updates this file whenever it creates or modifies an `AGENTS.md` file, providing a constantly up-to-date visual map of the entire project structure for instant navigation without blind searching.
+4. **Business Logic & Context:** Technical code tells the AI *how*, but SCHRACH includes a "Context & Decisions" section to tell the AI *why*. This prevents agents from accidentally undoing intentional architectural decisions.
+5. **The `/.schrach` Proprietary Directory:** A hidden root directory `/.schrach` acts as the AI's personal workspace. It contains `/.schrach/docs` for caching external framework documentation (enabling 100% retrieval success rates) and `/.schrach/examples` for storing golden code reference patterns.
 
 The result is a self-maintaining memory system. The AI understands the local rules, makes precise edits, and updates the local `AGENTS.md` file to keep the documentation current. Less guessing. Less drift.
 
 ## How To Use SCHRACH
 
-1. Copy the contents of [`AGENTS.md`](./AGENTS.md) into the root of your project.
-2. Update the YAML frontmatter in the root `AGENTS.md` to reflect your project details.
+1. Copy the `.agents` folder (containing `AGENTS.md` and `AGENTS-TREE.md`) into the root of your project.
+2. Update the YAML frontmatter in the master `AGENTS.md` to reflect your project details.
 3. Tell your AI agent (like Claude, Cursor, or Google Antigravity): *"Please initialize the SCHRACH hierarchy for this project."*
 4. The AI will autonomously scan your entire project tree, evaluate the complexity of your codebase, and automatically generate all necessary nested `AGENTS.md` files (complete with OKF YAML metadata) for you. You do not have to write them manually!

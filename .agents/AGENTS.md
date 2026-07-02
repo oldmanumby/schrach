@@ -9,6 +9,13 @@ status: active
 
 # SCHRACH Framework (DOX + OKF)
 
+## Rules
+
+1. Every directory must contain an `AGENTS.md` file if it has meaningful logic, configuration, or architectural boundaries.
+2. Never repeat information. If a child folder handles database models, the parent folder should simply state: "Database models are handled in `/db`."
+3. Every `AGENTS.md` file MUST contain the OKF YAML frontmatter block exactly as formatted above, updating the `scope`, `last_updated`, and `dependencies` accordingly.
+4. **Prefer retrieval reasoning over pre-training reasoning:** Always prioritize the explicit instructions, documentation, and logic written in the SCHRACH files and `/.schrach/docs` over your internal training weights.
+
 - SCHRACH is a highly performant `AGENTS.md` hierarchy installed here.
 - All AI agents must follow SCHRACH instructions across any edits.
 
@@ -47,7 +54,7 @@ Update parent docs when parent-level structure, ownership, workflow, or child in
 
 ## Hierarchy & Project Map
 
-- **Global Map (`AGENTS-TREE.md`):** The master map of the repository sits at the root in `AGENTS-TREE.md`. You must consult this map when entering the project to "fast-travel" to the relevant directory.
+- **Global Map (`AGENTS-TREE.md`):** The master map of the repository sits alongside this file in `.agents/AGENTS-TREE.md`. You must consult this map when entering the project to "fast-travel" to the relevant directory.
 - **Root `AGENTS.md`:** The central rail: project-wide instructions, global preferences, durable workflow rules.
 - **Child `AGENTS.md` files:** Domain-specific instructions and a localized Child Index.
 - Each parent explains what its direct children cover and what stays owned by the parent.
@@ -84,18 +91,30 @@ Default section order (after YAML frontmatter):
 2. Update nearest owning docs and any affected parents or children.
 3. Refresh the `last_updated` timestamp and `dependencies` array in the YAML frontmatter of any modified docs.
 4. Refresh every affected local Child Index.
-5. **CRITICAL:** If you created, moved, or deleted an `AGENTS.md` file, you MUST regenerate the `AGENTS-TREE.md` file at the root to reflect the new global hierarchy.
+5. **CRITICAL:** If you created, moved, or deleted an `AGENTS.md` file, you MUST regenerate the `.agents/AGENTS-TREE.md` file to reflect the new global hierarchy.
 6. Remove stale or contradictory text.
 7. Run existing verification when relevant.
 8. Report any docs intentionally left unchanged and why.
 
 ## User Preferences
 
-When the user requests a durable behavior change, record it here or in the relevant child `AGENTS.md`.
+All code generation and architectural choices must obey these rules unless explicitly overridden by a child `AGENTS.md` file:
+- (Users: Place global rules here, e.g., "Use TypeScript strictly," "Avoid Tailwind CSS," "Prefer React Islands.")
+
+## Context & Decisions
+
+*(Log major business logic or architectural decisions here so agents understand the "why" behind the code).*
+- Why we chose this architecture: [Explanation]
+- Why we avoided X framework: [Explanation]
+
+## Framework Documentation Index
+
+*(Provide direct file paths to any external framework documentation downloaded into the `/.schrach/docs/` directory).*
+- Example Framework: `/.schrach/docs/example-framework.md` 
 
 ## Child Index
 
-*(The local map for this specific directory's immediate sub-folders. For the full project map, see `AGENTS-TREE.md` at the root).*
+*(The local map for this specific directory's immediate sub-folders. For the full project map, see `.agents/AGENTS-TREE.md`).*
 
 This directory is not yet indexed. Before continuing you must scan the immediate sub-folders, build the localized SCHRACH tree for this scope, and replace this message with the actual index.
 
