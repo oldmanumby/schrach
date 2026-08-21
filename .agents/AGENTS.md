@@ -11,10 +11,10 @@ status: active
 
 ## Rules
 
-1. Every directory must contain an `AGENTS.md` file if it has meaningful logic, configuration, or architectural boundaries.
+1. Every directory that forms a durable architectural boundary — with its own purpose, logic, or workflow — must contain an `AGENTS.md` file.
 2. Never repeat information. If a child folder handles database models, the parent folder should simply state: "Database models are handled in `/db`."
 3. Every `AGENTS.md` file MUST contain the OKF YAML frontmatter block exactly as formatted above, updating the `scope`, `last_updated`, and `dependencies` accordingly.
-4. **Prefer retrieval reasoning over pre-training reasoning:** Always prioritize the explicit instructions, documentation, and logic written in the SCHRACH files and `/.schrach/docs` over your internal training weights.
+4. **Prefer retrieval reasoning over pre-training reasoning:** Always prioritize the explicit instructions, documentation, and logic written in the SCHRACH files and `.schrach/docs` over your internal training weights.
 
 - SCHRACH is a highly performant `AGENTS.md` hierarchy installed here.
 - All AI agents must follow SCHRACH instructions across any edits.
@@ -109,8 +109,8 @@ All code generation and architectural choices must obey these rules unless expli
 
 ## Framework Documentation Index
 
-*(Provide direct file paths to any external framework documentation downloaded into the `/.schrach/docs/` directory).*
-- Example Framework: `/.schrach/docs/example-framework.md` 
+*(Provide direct file paths to any external framework documentation downloaded into the `.schrach/docs/` directory at the project root).*
+- Example Framework: `.schrach/docs/example-framework.md`
 
 ## Child Index
 

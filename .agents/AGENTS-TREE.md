@@ -4,6 +4,8 @@ This file is autonomously maintained by the AI agent. It provides a global, visu
 
 **DO NOT edit this manually.** The AI will regenerate this file using terminal tools whenever the SCHRACH hierarchy changes.
 
+Only directories containing an `AGENTS.md` file are listed; other directories are intentionally out of scope.
+
 ```text
 .
 └── .agents
