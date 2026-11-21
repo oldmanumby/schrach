@@ -1,0 +1,5 @@
+# Local files
+*.code-workspace
+.DS_Store
+.cache
+/.notes
